@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="http://localhost:8090/static/css/center.css">
+<div class="button_container">
+    <a class="center_link" href="http://localhost:8090/center"><button class=" btn active">전체</button></a>
+    <a class="center_link" href="http://localhost:8090/center/대구직영점"><button class="btn">대구직영점</button></a>
+    <a class="center_link" href="http://localhost:8090/center/대전본점"><button class="btn">대전본점</button></a>
+    <a class="center_link" href="http://localhost:8090/center/부산남구점"><button class="btn">부산남구점</button></a>
+    <a class="center_link" href="http://localhost:8090/center/부산화명점"><button class="btn">부산화명점</button></a>
+    <a class="center_link" href="http://localhost:8090/center/용인본점"><button class="btn">용인본점</button></a>
+    <a class="center_link" href="http://localhost:8090/center/울산본점"><button class="btn">울산본점</button></a>
+    <a class="center_link" href="http://localhost:8090/center/인천논현본점"><button class="btn">인천논현본점</button></a>
+    <a class="center_link" href="http://localhost:8090/center/창원직영점"><button class="btn">창원직영점</button></a>
+    <a class="center_link" href="http://localhost:8090/center/평택직영점"><button class="btn">평택직영점</button></a>
+</div>
+<div class="pet">
+    <div class="xans-element- xans-product xans-product-listnormal product_list">
+        <ul class="prdList column4">
+            {% for i in pet %}
+            <li class="item xans-record-">
+                <div class="box_wrap">
+                    <span class="wish"></span>
+                    <div class="img_box">
+                        <a href={{i.link}} name="anchorBoxName_976" class="thumb">
+                            <img src={{i.image}} alt="2010 MAROON DENIM JACKET [BROWN]" class="big">
+                            " &nbsp;"
+                            <img src={{i.image}} alt="2010 MAROON DENIM JACKET [BROWN]" class="medium"
+                                style="opacity: 0; display: inline;">
+                            " &nbsp;"
+                        </a>
+                    </div>
+                    <a href={{i.link}} class="name">
+                        <span class="center_name">{{i.center_name}}</span><span class="pet_type">{{i.type}}</span>
+                    </a>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<p id="center_name" style="display: none;">{{center_name}}</p>
+<script>
+    var btn = document.getElementsByClassName('btn');
+    var center_name = document.getElementById("center_name").innerHTML;
+    for (var i in btn) {
+        if (center_name != '') btn[0].classList.remove('active');
+        if (btn[i].innerHTML == center_name) {
+            btn[i].classList.add('active');
+        }
+    }
+</script>
+{% endblock %}

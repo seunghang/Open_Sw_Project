@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="http://localhost:8090/static/css/board_detail.css">
+<div class="container">
+    <h1>분양 신청</h1>
+    <a href="http://localhost:8090/board/{{type}}"><button class="crud_btn">글 목록</button></a>
+    {% if post.creator==user.nick %}
+    <a href="http://localhost:8090/board/{{type}}/update/{{post.num}}"><button class="crud_btn update_board">글
+            수정</button></a>
+    <button class="crud_btn delete_board" onclick="deletePost()">글 삭제</button>
+    {% endif %}
+    <table class="main">
+        <thead>
+            <tr>
+                <th class="th_text">번호</th>
+                <th class="th_value">{{post.num}}</th>
+                <th class="th_text">제목</th>
+                <th class="th_value title_value">{{post.title}}</th>
+                <th class="th_text">작성자</th>
+                <th class="th_value">{{post.creator}}</th>
+                <th class="th_text">날짜</th>
+                <th class="th_value date_value">{{date}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">내용</th>
+                <td colspan="5" style="
+                white-space: pre-line;">{{post.content}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    function deletePost() {
+        var num = document.getElementsByClassName('th_value')[0].innerHTML;
+        // alert(num);
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/board/{{type}}/delete');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({ num }));
+        alert('삭제가 완료되었습니다.')
+        location.href = 'http://localhost:8090/board/{{type}}';
+
+    }
+</script>
+{% endblock %}

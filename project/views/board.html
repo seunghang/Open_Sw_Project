@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="http://localhost:8090/static/css/board.css">
+<div class="container">
+    {% if type==1 %}
+    <h1>분양 신청</h1>
+    {% if user and user.id %}
+    <a href="http://localhost:8090/board/1/create"><button class="crud_btn create_board">글 쓰기</button></a>
+    {% else %}
+    {% endif %}
+    {% else %}
+    <h1>분양 결과</h1>
+    {% if user and user.id %}
+    <a href="http://localhost:8090/board/2/create"><button class="crud_btn create_board">글 쓰기</button></a>
+    {% else %}
+    {% endif %}
+    {% endif %}
+    <table class="main">
+        <thead>
+            <tr>
+                <th scope="cols">번호</th>
+                <th scope="cols">제목</th>
+                <th scope="cols">작성자</th>
+                <th scope="cols">날짜</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in result%}
+            <tr class="highlight1">
+                <th scope="row">{{i.num}}</th>
+                <td><a href="http://localhost:8090/board/{{type}}/{{i.num}}">{{i.title}}</a></td>
+                <td>{{i.creator}}</span></td>
+                <td>{{i.date}}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+{% endblock %}

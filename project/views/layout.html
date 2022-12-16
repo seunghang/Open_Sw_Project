@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://localhost:8090/static/css/style.css">
+</head>
+
+<body>
+    <header>
+        <img src="http://localhost:8090/static/img/header3.jpg" style="width: 100%;">
+        <a href="http://localhost:8090">
+            <h1>유기동물 보호센터 및 분양게시판</h1>
+        </a>
+    </header>
+    <nav>
+        <div class="navbar">
+            <div class="dropdown">
+                <button class="dropbtn">소개
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="http://localhost:8090/intro">소개글</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">보호센터
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="http://localhost:8090/center">전체</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">분양게시판
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="http://localhost:8090/board/1">분양 신청</a>
+                    <a href="http://localhost:8090/board/2">분양 결과</a>
+                </div>
+            </div>
+            {% if user and user.id %}
+            <div class="dropdown">
+                <a href="http://localhost:8090/logout"><button class="dropbtn">로그아웃
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                </a>
+            </div>
+            {% else %}
+            <div class="dropdown">
+                <a href="http://localhost:8090/login">
+                    <button class="dropbtn">로그인
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                </a>
+            </div>
+            <div class="dropdown">
+                <a href="http://localhost:8090/sign">
+                    <button class="dropbtn">회원가입
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                </a>
+            </div>
+
+            {% endif %}
+        </div>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+    <footer>
+
+    </footer>
+    <script>
+        window.onload = () => {
+            if (new URL(location.href).searchParams.get('loginError')) {
+                alert(new URL(location.href).searchParams.get('loginError'));
+                window.location.href = "/login";
+            }
+        };
+    </script>
+</body>
+
+</html>

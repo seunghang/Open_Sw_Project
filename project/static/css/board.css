@@ -1,0 +1,66 @@
+.container {
+  text-align: center;
+}
+table.main {
+  text-align: center;
+  width: 70%;
+  border-collapse: collapse;
+  line-height: 1.5;
+  margin: 0 auto;
+}
+
+table.main thead {
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  background: #e9aaba;
+}
+
+table.main thead th {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: center;
+  color: #fff;
+}
+
+table.main thead th.th_value {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: center;
+  color: black;
+}
+
+table.main tbody th {
+  text-align: center;
+  width: 100px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: center;
+  background: #fcf1f4;
+}
+
+table.main td {
+  text-align: center;
+  width: 350px;
+  padding: 10px;
+  vertical-align: center;
+}
+
+table.main tbody tr {
+  border-bottom: 1px solid #e7708d;
+}
+
+button.crud_btn {
+  color: white;
+  background-color: pink;
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+  border: 1px solid white;
+  margin-bottom: 2vh;
+}
+button.crud_btn:hover {
+  font-size: 15px;
+  box-shadow: 1px 1px 1px 1px palevioletred;
+}

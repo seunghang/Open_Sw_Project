@@ -1,0 +1,56 @@
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.bottom-right {
+  position: absolute;
+  top: 70%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+}
+.bottom-right a button {
+  /* opacity: 0.1; */
+  width: 120px;
+  color: white;
+  border: 1px solid white;
+  background-color: rgb(255, 255, 255, 0.1);
+}
+.centered {
+  position: absolute;
+  top: 45%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+}
+
+a.go_button:hover button {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.home_text {
+  margin-top: 100px;
+  text-align: center;
+}
+.home_text h4 {
+  color: #ad9682;
+}
+.home_text h5 {
+  color: #cccccc;
+}
+.img-container {
+  width: 100%;
+}
+.img-row {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+.img-row a {
+  flex: 1;
+  width: 33%;
+}
+.img-row a img {
+  /* flex: 1; */
+  width: 80%;
+}
